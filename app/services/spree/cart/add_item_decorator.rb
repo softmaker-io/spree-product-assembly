@@ -1,7 +1,7 @@
 module Spree::Cart::AddItemDecorator
   private
 
-  def add_to_line_item(order:, variant:, quantity: nil, options: {})
+  def add_to_line_item(order:, variant:, quantity: nil, public_metadata: {}, private_metadata: {}, options: {})
     options ||= {}
     quantity ||= 1
     line_item = Spree::Dependencies.line_item_by_variant_finder.constantize.new.execute(order: order, variant: variant, options: options)
